@@ -1,0 +1,41 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+ 
+{% block title %} Post list {% endblock title %}
+ 
+{% block content %}
+<table>
+    <thead>
+        <th>
+            Author
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Text
+        </th>
+        <th>
+            Categories
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ post.author|title }}
+        </td>
+        <td>
+            {{ post.title|title }}
+        </td>
+        <td>
+            {{ post.text }}
+        </td>
+        <td>
+            {% for category in post.categorys.all %}
+                {{ category }} &nbsp;
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+{% endblock content %}
+
+
